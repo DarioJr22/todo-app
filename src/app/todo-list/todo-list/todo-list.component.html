@@ -1,0 +1,12 @@
+<div>
+    <div>
+        <input name="checkAddTask" type="checkbox">
+        <input type="text" name="newTaskName" (keyup.enter)="addTaskToList($event)" id="newTaskName">
+    </div>
+    <!-- *ngFor -->
+    <div id="taslistWrapper"> 
+        <ul *ngFor="let i of taskList;index as y">
+            <li class="task"> <input name="checkAddTask" type="checkbox">{{i.description}}</li>
+        </ul>
+    </div>
+</div>

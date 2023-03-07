@@ -1,0 +1,76 @@
+:root{
+--darkBlue:hsl(235, 21%, 11%)
+--darkBlueHover::hsl(235, 21%, 11%)
+--lighGrayshBlue:hsl(234, 39%, 85%)
+--lighGrayshBlueHover:hsl(234, 39%, 85%)
+--darkGrayishBlue:hsl(234, 11%, 52%)
+--verydarkGrayishBlue:hsl(233, 14%, 35%)
+--verydarkGrayishBlueHover:hsl(237, 14%, 26%)
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.to-do-main-Wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+
+
+.to-do-header{
+    /* Cor clara */
+    color: white;
+    position: absolute;
+    top:0rem;
+    width: 100%;
+    height: 37%;
+    display: flex;
+    justify-content: center;
+    column-gap: 10rem;
+    align-items: center;
+    flex-direction: row;
+    background: url(./images/bg-desktop-light.jpg) no-repeat center center;
+    background-size: 100%;
+
+}
+
+.to-do-Wrapper-List{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-task{
+height: 2rem;
+width: 100%;
+padding: 1rem;
+background-color: white;
+border-radius: 3px;
+}
+
+.new-task input{
+    border: none; 
+}
+
+.new-task input[type='checkbox']{
+    border-radius: 50%;
+}
+
+
+/*Formatação mobile */
+@media  screen and (max-width:375px) {
+    
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
