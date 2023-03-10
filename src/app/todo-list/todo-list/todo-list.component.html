@@ -1,12 +1,26 @@
-<div>
-    <div>
+<div class="todoList">
+    <div class="checkAddTask">
         <input name="checkAddTask" type="checkbox">
-        <input type="text" name="newTaskName" (keyup.enter)="addTaskToList($event)" id="newTaskName">
+        <input type="text" name="newTaskName" (keyup.enter)="addTaskToList($event)" placeholder="Create a new to do" id="newTaskName">
     </div>
     <!-- *ngFor -->
-    <div id="taslistWrapper"> 
-        <ul *ngFor="let i of taskList;index as y">
-            <li class="task"> <input name="checkAddTask" type="checkbox">{{i.description}}</li>
+    <div class="tasklistWrapper">
+        <ul
+        cdkDropList
+        [cdkDropListData]="taskList"
+        (cdkDropListDropped)="drop($event)">
+
+          <li
+            cdkDrag
+            *ngFor="let i of taskList;index as y"
+            [cdkDragData]="i"
+            class="task">
+             <img src="./../../../assets/images/grip-vertical.svg" cdkDragHandle>
+             <input name="checkAddTask" type="checkbox" [value]="i.checked">
+             <input name="inputAddTask" type="text" [value]="i.description">
+             <button (click)="removeTask(i.id)"><img src="./../../../assets/images/icon-cross.svg" alt="Fechar"></button>
+            </li>
+
         </ul>
     </div>
 </div>
