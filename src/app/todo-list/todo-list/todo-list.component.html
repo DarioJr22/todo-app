@@ -15,11 +15,27 @@
             *ngFor="let i of taskList;index as y"
             [cdkDragData]="i"
             class="task">
+
              <img src="./../../../assets/images/grip-vertical.svg" cdkDragHandle>
-             <input name="checkAddTask" type="checkbox" [value]="i.checked">
-             <input name="inputAddTask" type="text" [value]="i.description">
-             <button (click)="removeTask(i.id)"><img src="./../../../assets/images/icon-cross.svg" alt="Fechar"></button>
+             <input
+              id="checkAddTask"
+              type="checkbox"
+              [value]="i.checked"
+              (click)="updateTask(i.id,!checkTask.value,true)"
+              #checkTask>
+
+             <input
+              id="inputAddTask"
+              (keyup.enter)="updateTask(i.id,inputTask.value,false)"
+              type="text"
+              [value]="i.description"
+              #inputTask>
+
+              <button (click)="removeTask(i.id)"><img src="./../../../assets/images/icon-cross.svg" alt="Fechar"></button>
             </li>
+            <div class="footer d-flex">
+             {{ numberTaskCompleted()+'/'+taskList.length}} ALL <button (click)="activeAll()">Complet</button>  <button (click)="removeAllCompleted()" >ClearComplet</button>
+            </div>
 
         </ul>
     </div>
