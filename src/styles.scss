@@ -50,6 +50,22 @@ ul {
               align-items: center;
               justify-content: center;
               margin: 0.5rem;
+
+              .inputTask{
+                text-decoration: none;
+               border-top: none;
+               border-left: none;
+               border-right: none;
+               border-bottom: 1px grey solid;
+              }
+
+              .inputTask-checked{
+                text-decoration: line-through;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px grey solid;
+              }
             }
           }
 

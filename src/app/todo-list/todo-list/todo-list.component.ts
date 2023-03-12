@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output,ChangeDetectorRef } from '@angular/core';
+import { Component, EventEmitter, Output,ChangeDetectorRef, OnChanges, SimpleChanges } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import{ CdkDragDrop, moveItemInArray }from '@angular/cdk/drag-drop'
 
@@ -7,7 +7,7 @@ import{ CdkDragDrop, moveItemInArray }from '@angular/cdk/drag-drop'
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnChanges{
 
   constructor(private cdr: ChangeDetectorRef){
 
@@ -19,13 +19,14 @@ export class TodoListComponent {
   - [ ] Uso de view Childs
   - [ ] aot
   - [ ] Funcionamento de modules com angular
+  - [ ] Funcionamento de ngModel pra capturar eventos
+  - [ ] Splice altera o indece ?
   --------------PENDENCIAS---------------------
-  - [ ] Resolver o Update
-  - [ ] Resolver o Remove
-  - [ ] Resolver o All COMPLEET
-  - [ ] Resolver o All COMPLEET
-  - [ ] Resolver o Clear Compleet
-  - [ ] Resolver o [Quando estiver marcado, grifar a tarefa]
+  - [X] Resolver o Update
+  - [X] Resolver o Remove
+  - [x] Resolver o All COMPLEET
+  - [x] Resolver o Clear Compleet
+  - [x] Resolver o [Quando estiver marcado, grifar a tarefa]
 
   - [ ] Entender como fazer o modo dark / Fazer
   - [ ] Entender como Estilizar o check box / Fazer
@@ -37,6 +38,11 @@ export class TodoListComponent {
 
   taskList:Task[] = []
 
+  //Changes
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+
+  }
 
   //Drag and drop handler
 
@@ -60,36 +66,19 @@ export class TodoListComponent {
 
   }
 
-  removeTask(id:number){
-   let deleteItem:any =  this.taskList.find((a)=>a.id === id)
-   this.taskList.splice(this.taskList.indexOf(deleteItem),1)
+  removeTask(id:number, idx?:number){
+   if (idx) {
+    this.taskList.splice(idx,1)
+   }else{
+    let deleteItem:any =  this.taskList.find((a)=>a.id === id)
+    this.taskList.splice(this.taskList.indexOf(deleteItem),1)
+   }
+
   }
 
-  updateTask(id:number,updateT:any,check?:boolean){
-    //Item á ser atualizado
-    let updateitem:any = this.taskList.find((a)=> a.id === id)
-
-    //Se for uma atualização do CheckBox
-    if (check) {
-      let update:Task = {
-        id:id,
-        checked:!updateT,
-        description:updateitem.description
-      }
-      this.taskList.splice(this.taskList.indexOf(updateitem),1,update)
-    }else{
-      let update:Task = {
-        id:id,
-        checked:updateitem.checked,
-        description:updateT
-      }
-      this.taskList.splice(this.taskList.indexOf(updateitem),1,update)
-    }
-
-    //Update the number of taks completed
-    this.numberTaskCompleted()
-    this.cdr.detectChanges()
-
+  updateTask(id:number,updateT?:any){
+    let updateItem:any =  this.taskList.find((a)=>a.id === id)
+    console.log(this.taskList);
   }
 
   activeAll(){
@@ -100,9 +89,16 @@ export class TodoListComponent {
   }
 
   removeAllCompleted(){
-    this.taskList.forEach((t)=> t.checked ? this.removeTask(t.id) : t.checked = t.checked)
+   for(let i = this.taskList.length-1 ; i>=0 ; i--){
+      if(this.taskList[i].checked){
+        this.removeTask(this.taskList[i].id, i)
+      }
+   }
     //Update the number of taks completed
     this.numberTaskCompleted()
+
+    console.log(this.taskList);
+
   }
 
   numberTaskCompleted(){

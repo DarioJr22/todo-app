@@ -20,14 +20,16 @@
              <input
               id="checkAddTask"
               type="checkbox"
-              [value]="i.checked"
-              (click)="updateTask(i.id,!checkTask.value,true)"
-              #checkTask>
+              [(ngModel)]="i.checked"
+              (click)="updateTask(i.id)"
+              >
 
              <input
               id="inputAddTask"
-              (keyup.enter)="updateTask(i.id,inputTask.value,false)"
+              [(ngModel)]="i.description"
               type="text"
+              [ngClass]="{'inputTask-checked':i.checked,'inputTask':!i.checked}"
+              [disabled]="i.checked"
               [value]="i.description"
               #inputTask>
 
