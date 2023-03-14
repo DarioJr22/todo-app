@@ -1,12 +1,4 @@
-:root{
---darkBlue:hsl(235, 21%, 11%)
---darkBlueHover::hsl(235, 21%, 11%)
---lighGrayshBlue:hsl(234, 39%, 85%)
---lighGrayshBlueHover:hsl(234, 39%, 85%)
---darkGrayishBlue:hsl(234, 11%, 52%)
---verydarkGrayishBlue:hsl(233, 14%, 35%)
---verydarkGrayishBlueHover:hsl(237, 14%, 26%)
-}
+
 
 body{
     display: flex;
@@ -60,7 +52,7 @@ border-radius: 3px;
 }
 
 .new-task input{
-    border: none; 
+    border: none;
 }
 
 .new-task input[type='checkbox']{
@@ -70,7 +62,7 @@ border-radius: 3px;
 
 /*Formatação mobile */
 @media  screen and (max-width:375px) {
-    
+
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
