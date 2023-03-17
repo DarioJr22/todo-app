@@ -2,25 +2,25 @@
 
 :root{
   /* Check */
-  --BrightBlue:hsl(220,98%,61%)
-  --CheckBackground: linear-gradient(360deg,hsl(192, 60%, 70%), hsl(280, 87%, 65%))
+  --BrightBlue:hsl(220,98%,61%);
+  --CheckBackground: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
 
   /* Dark theme */
-  --DarkBlue:hsl(235, 21%, 11%)
-  --DarkBlueHover::hsl(235, 21%, 11%)
-  --DarkGrayishBlue:hsl(234, 11%, 52%)
-  --VerydarkGrayishBlue:hsl(233, 14%, 35%)
-  --VerydarkGrayishBlueHover:hsl(237, 14%, 26%)
-  --lighGrayshBlue:hsl(234, 39%, 85%)
-  --lighGrayshBlueHover:hsl(234, 39%, 85%)
+  --DarkBlue:hsl(235, 21%, 11%);
+  --DarkBlueHover::hsl(235, 21%, 11%);
+  --DarkGrayishBlue:hsl(234, 11%, 52%);
+  --VerydarkGrayishBlue:hsl(233, 14%, 35%);
+  --VerydarkGrayishBlueHover:hsl(237, 14%, 26%);
+  --lighGrayshBlue:hsl(234, 39%, 85%);
+  --lighGrayshBlueHover:hsl(234, 39%, 85%);
 
   /* Light theme */
-  --VeryLightGray:hsl(0, 0%, 98%)
-  --VeryLightGrayIshBlue:hsl(236, 33%, 92%)
-  --LightGrayishBlue:hsl(233, 11%, 84%)
-  --DarkGrayishBlue:hsl(236, 9%, 61%)
-  --VeryDarkGrauishBlue:hsl(235, 19%, 35%)
+  --VeryLightGray:hsl(0, 0%, 98%);
+  --VeryLightGrayIshBlue:hsl(236, 33%, 92%);
+  --LightGrayishBlue:hsl(233, 11%, 84%);
+  --DarkGrayishBlue:hsl(236, 9%, 61%);
+  --VeryDarkGrauishBlue:hsl(235, 19%, 35%);
 
   }
 
@@ -101,10 +101,26 @@ padding-inline-start: 0px;
               justify-content: center;
               margin: 0.5rem;
 
-              input[type='checkbox']#checkAddTask:active{
-                background-color: linear-gradient(360deg,hsl(192, 60%, 70%), hsl(280, 87%, 65%));
+              input[type='checkbox']{
+                appearance: none;
+                height: 0.938rem;
+                width: 0.938rem;
+                background: white;
                 border-radius: 50%;
-                border: 1px solid linear-gradient(360deg,hsl(192, 60%, 70%), hsl(280, 87%, 65%));
+                border: 1px var(--CheckBackground) solid;
+              }
+/* 360deg,hsl(192, 100%, 67%),hsl(280, 87%, 65%) */
+
+
+              input[type='checkbox']:checked{
+                appearance: none;
+                height: 0.938rem;
+                width: 0.938rem;
+                background:var(--CheckBackground) url(./assets/images/icon-check.svg)  ;
+                border-radius: 50%;
+                border: 1px var(--DarkGrayishBlue) solid;
+
+
               }
 
               input[type='text']#inputAddTask{
