@@ -21,6 +21,7 @@ export class TodoListComponent implements OnChanges{
   - [ ] Funcionamento de modules com angular
   - [ ] Funcionamento de ngModel pra capturar eventos
   - [ ] Splice altera o indece ?
+  - [ ] Como que edita um css de um check box ?
   --------------PENDENCIAS---------------------
   - [X] Resolver o Update
   - [X] Resolver o Remove
