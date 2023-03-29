@@ -1,7 +1,8 @@
 <div class="todoList">
     <div class="checkAddTask">
-        <input name="checkAddTask" type="checkbox">
-        <input type="text" name="newTaskName" (keyup.enter)="addTaskToList($event)" placeholder="Create a new to do" id="newTaskName">
+        <img src="./../../../assets/images/grip-vertical.svg" >
+        <input disabled name="checkAddTask" type="checkbox">
+        <input  type="text" name="newTaskName" (keyup.enter)="addTaskToList($event)" placeholder="Create a new to do" id="newTaskName">
     </div>
     <!-- *ngFor -->
     <div class="tasklistWrapper">
@@ -35,7 +36,7 @@
 
               <button (click)="removeTask(i.id)"><img src="./../../../assets/images/icon-cross.svg" alt="Fechar"></button>
             </li>
-            <div class="footer d-flex">
+            <div class="footer">
              {{ numberTaskCompleted()+'/'+taskList.length}} ALL <button (click)="activeAll()">Complet</button>  <button (click)="removeAllCompleted()" >ClearComplet</button>
             </div>
 

@@ -50,6 +50,10 @@
   background: url(./assets/images/bg-desktop-light.jpg) no-repeat center center ;
   background-size: cover;
   z-index: -1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right:0px
 }
 
 li{
@@ -67,6 +71,15 @@ margin-block-end:0em;
 margin-inline-start: 0px;
 margin-inline-end: 0px;
 padding-inline-start: 0px;
+
+
+li{
+  list-style-type: none;
+  border: 1px grey;
+  border-radius: 0px;
+
+
+}
 }
 
 
@@ -84,23 +97,65 @@ padding-inline-start: 0px;
     top: calc(50% - 2rem);
     left: calc(50% - 7rem);
     box-sizing: border-box;
-    width: 14rem;
+    width: 20rem;
+
+    .checkAddTask{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      background: white;
+      border-radius: 3px;
+      margin-bottom: 0.9rem;
+      width: 20rem;
+      height: 2rem;
+
+
+      
+      input[type='checkbox']{
+        appearance: none;
+        height: 0.938rem;
+        width: 0.938rem;
+        background: white;
+        border-radius: 50%;
+        border: 1px gray solid;
+      }
+
+      input[type='text']{
+        background-color: var(--CheckBackground);
+        border: none;
+        outline: none;
+        margin-left: 0.9rem;
+        width: 100%;
+      }
+      input[type='text']:active:hover{
+        background-color: var(--CheckBackground);
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+
+
+    }
 
     .tasklistWrapper{
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      border: 1px var(--VeryLightGray) solid;
-      border-color: var(--VeryLightGray);
-      box-shadow: 20px 20px 20px gray;
+      border: 1px gray solid;
+      border-radius: 2px;
+      box-shadow: 20px 20px 20px 20px gray;
+      width: 100%;
+
+    
 
       .task{
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: start;
               background-color: var(--VeryLightGray);
-              width: 100%;
+              width: 20rem;
+              height: 2rem;
 
 
               //Inputs
@@ -111,7 +166,7 @@ padding-inline-start: 0px;
                 width: 0.938rem;
                 background: white;
                 border-radius: 50%;
-                border: 1px var(--CheckBackground) solid;
+                border: 1px gray solid;
               }
 
               input[type='checkbox']:checked{
@@ -125,6 +180,7 @@ padding-inline-start: 0px;
                 background-size: auto; */
                 border-radius: 50%;
                 border: 1px var(--DarkGrayishBlue) solid;
+            
               }
 
               input[type='checkbox']:checked::before {
@@ -173,6 +229,25 @@ padding-inline-start: 0px;
                 appearance: none;
                 background-color: white;
                 border: none;
+                position: absolute;
+                right: 0.625rem ;
+              }
+            }
+
+            .footer{
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+              background-color: white;
+              width: 20rem;
+              height: 2rem;
+              color: var(--DarkGrayishBlue);
+
+              button{
+                color: var(--DarkGrayishBlue);
+                background-color: white;
+                appearance: none;
+
               }
             }
           }
@@ -190,26 +265,14 @@ padding-inline-start: 0px;
       justify-content: center;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   }
+  
   .cdk-drag-placeholder {
 
     border: 2px dashed black;
   }
 
-  li{
-    list-style-type: none;
-    border: 1px grey;
-    border-radius: 20px;
 
-    &:first-child{
-      border: 1px solid dashed;
-      border-radius: 3px ;
-    }
-    &:last-child{
-      border: 1px solid dashed;
-      border-radius: 0px 3px ;
-    }
 
-}
 
 ul {
   display: flex;
@@ -221,6 +284,7 @@ ul {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 0px;
+  
 }
 ///
 ///
