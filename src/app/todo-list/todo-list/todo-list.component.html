@@ -1,4 +1,10 @@
 <div class="todoList">
+    <div class="title">
+        <h1> T O D O </h1> <span>
+          <img [src]="modeAppSrcIcon" alt="darkMode"
+          (click)="toggleDarkMode()">
+        </span>
+      </div>
     <div class="checkAddTask">
         <img src="./../../../assets/images/grip-vertical.svg" >
         <input disabled name="checkAddTask" type="checkbox">
@@ -42,4 +48,6 @@
 
         </ul>
     </div>
+
+    <p>Drag and drop to reorder list</p>
 </div>

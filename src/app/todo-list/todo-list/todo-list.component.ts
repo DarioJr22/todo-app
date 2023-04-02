@@ -63,6 +63,7 @@ export class TodoListComponent implements OnChanges{
                     checked:false
                   }
     this.taskList.push(newTask)
+    value.target.value = ''
     console.log(this.taskList);
 
   }
@@ -118,6 +119,22 @@ export class TodoListComponent implements OnChanges{
     let random = Math.random() * Math.random() * 3
     let id = 2 * random
     return id
+  }
+
+
+  //Toggle dark Mode
+
+  modeAppSrcIcon = './../../assets/images/icon-moon.svg'
+  toggleDarkMode(){
+    this.modeAppSrcIcon = 
+  
+    this.modeAppSrcIcon == 
+    './../../assets/images/icon-moon.svg' ? 
+    './../../assets/images/icon-sun.svg':
+    './../../assets/images/icon-moon.svg'
+    
+    document.querySelector('body')?.classList.toggle('dark-mode')
+    
   }
 
 
