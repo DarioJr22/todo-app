@@ -314,8 +314,6 @@ body.dark-mode{
   
   
   
-  //Componente de ToDo LIst - Ligth side
-  
   .todoList{
       display: flex;
       align-items: center;
@@ -353,7 +351,7 @@ body.dark-mode{
           appearance: none;
           height: 0.938rem;
           width: 0.938rem;
-          background: var(--VeryDarkGrauishBlue);
+          background: var(--VerydarkGrayishBlue);
           border-radius: 50%;
           border: 1px gray solid;
         }
@@ -392,7 +390,7 @@ body.dark-mode{
                 display: flex;
                 align-items: center;
                 justify-content: start;
-                background-color: var(--VeryDarkGrauishBlue);
+                background-color: var(--VerydarkGrayishBlueHover);
                 width: 20rem;
                 height: 2rem;
   
@@ -403,7 +401,7 @@ body.dark-mode{
                   appearance: none;
                   height: 0.938rem;
                   width: 0.938rem;
-                  background: white;
+                  background: var(--VerydarkGrayishBlue);
                   border-radius: 50%;
                   border: 1px gray solid;
                 }
