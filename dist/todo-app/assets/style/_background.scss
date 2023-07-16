@@ -1,0 +1,9 @@
+.imgWrapper{
+display: grid;
+width: 100%;
+height: 35vh;
+.imgWrapperGrid{
+  grid-area: 1 /1 /auto / auto;
+  background: url(./assets/images/bg-desktop-light.jpg) no-repeat center center ;
+}
+}

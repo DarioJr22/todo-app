@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": false,
+            "aot": true,
             "outputPath": "dist/todo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -52,7 +52,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
+              "buildOptimizer": true,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
