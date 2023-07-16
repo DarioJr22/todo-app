@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output,ChangeDetectorRef, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Output,ChangeDetectorRef, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import{ CdkDragDrop, moveItemInArray }from '@angular/cdk/drag-drop'
 
@@ -7,10 +7,13 @@ import{ CdkDragDrop, moveItemInArray }from '@angular/cdk/drag-drop'
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent implements OnChanges{
-
+export class TodoListComponent implements OnChanges,OnInit{
+  @Output()darkMode:EventEmitter<Boolean> = new EventEmitter<Boolean>()
   constructor(private cdr: ChangeDetectorRef){
 
+  }
+  ngOnInit(): void {
+    this.initTheme()
   }
   //Coisas para estudar e documentar
   /*
@@ -29,9 +32,9 @@ export class TodoListComponent implements OnChanges{
   - [x] Resolver o Clear Compleet
   - [x] Resolver o [Quando estiver marcado, grifar a tarefa]
 
-  - [ ] Entender como fazer o modo dark / Fazer
-  - [ ] Entender como Estilizar o check box / Fazer
-  - [ ] Entender como plotar esse fundo metade metade / Fazer
+  - [X] Entender como fazer o modo dark / Fazer
+  - [X] Entender como Estilizar o check box / Fazer
+  - [X] Entender como plotar esse fundo metade metade / Fazer
 
 
 
@@ -126,15 +129,25 @@ export class TodoListComponent implements OnChanges{
 
   modeAppSrcIcon = './../../assets/images/icon-moon.svg'
   toggleDarkMode(){
-    this.modeAppSrcIcon = 
-  
-    this.modeAppSrcIcon == 
-    './../../assets/images/icon-moon.svg' ? 
+    this.modeAppSrcIcon =
+    this.modeAppSrcIcon ==
+    './../../assets/images/icon-moon.svg' ?
     './../../assets/images/icon-sun.svg':
     './../../assets/images/icon-moon.svg'
-    
     document.querySelector('body')?.classList.toggle('dark-mode')
-    
+   this.initTheme()
+  }
+
+  initTheme(){
+    if(document.querySelector('body')?.classList.contains('dark-mode')){
+      localStorage.setItem('color-scheme','dark')
+      document.querySelector('body')?.classList.add('dark-mode')
+      this.darkMode.emit(true)
+    }else{
+      localStorage.setItem('color-scheme','light')
+      document.querySelector('body')?.classList.remove('dark-mode')
+      this.darkMode.emit(false)
+    }
   }
 
 

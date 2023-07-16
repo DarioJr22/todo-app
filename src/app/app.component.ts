@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo-app';
- 
-  
+  changeTheme(ev:Boolean){
+    this.darkMode = ev
+  }
+
+  darkMode:Boolean = false
 }
