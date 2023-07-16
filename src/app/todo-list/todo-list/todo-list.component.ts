@@ -131,9 +131,9 @@ export class TodoListComponent implements OnChanges,OnInit{
   toggleDarkMode(){
     this.modeAppSrcIcon =
     this.modeAppSrcIcon ==
-    './../../assets/images/icon-moon.svg' ?
-    './../../assets/images/icon-sun.svg':
-    './../../assets/images/icon-moon.svg'
+    '../../assets/images/icon-moon.svg' ?
+    '../../assets/images/icon-sun.svg':
+    '../../assets/images/icon-moon.svg'
     document.querySelector('body')?.classList.toggle('dark-mode')
    this.initTheme()
   }
